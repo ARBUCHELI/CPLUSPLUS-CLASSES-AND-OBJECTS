@@ -132,6 +132,66 @@ std::string Song::get_title() {
 
 ==================================================================================================================================================================
 
+* Creating Objects
+------------------
+Now that you have a class, let’s create some objects! To refresh your memory, an object is an instance of a class, which encapsulates data and functionality pertaining to that data.
+
+To create (or instantiate) an object, we can do this:
+
+	City accra;
+
+We can give the object’s attributes values like this (note that these must be attributes you defined in the class):
+
+	accra.population = 2270000;
+
+Later, we can access this information using the method we added to the City class (if it’s in a public part of the class):
+
+accra.get_population();
+
+music.cpp
+---------
+#include <iostream>
+#include "song.hpp"
+
+int main() {
+  Song electric_relaxation;
+  electric_relaxation.add_title("Electric Relaxation");
+  std::cout << electric_relaxation.get_title();
+}
+
+song.hpp
+--------
+#include <string>
+
+// add the Song class here:
+class Song {
+  
+  std::string title;
+
+public:
+  void add_title(std::string new_title);
+  std::string get_title();
+  
+};
+
+song.cpp
+--------
+#include "song.hpp"
+
+// add Song method definitions here:
+void Song::add_title(std::string new_title) {
+
+  title = new_title;
+
+}
+
+std::string Song::get_title() {
+
+  return title;
+
+}
+
+==================================================================================================================================================================
 
 
 
