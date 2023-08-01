@@ -1,0 +1,13 @@
+# CLASSES AND OBJECTS
+---------------------
+
+* What are Classes and Objects?
+-------------------------------
+An object-oriented programming language, is a programming language that allows developers to create their own custom data types.
+
+	CLASS: Specification of a new data type. A blueprint that tells the programming language what the new data type looks like, with attributes and functionality.
+
+	OBJECT: An Instance of a class, the object is the implementation of the class.
+
+=================================================================================================================================================================
+
