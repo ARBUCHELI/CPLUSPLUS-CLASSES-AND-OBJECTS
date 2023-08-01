@@ -193,6 +193,105 @@ std::string Song::get_title() {
 
 ==================================================================================================================================================================
 
+* Access Control: Public and Private
+------------------------------------
+Let’s circle back to that public keyword. What was that about?
+
+By default, everything in a class is private, meaning class members are limited to the scope of the class. This makes it easier to keep data from mistakenly being altered, and abstracts away all the nitty gritty details. If you try to access a private class member, you’ll get an error:
+
+	error: 'population' is a private member of 'City'
+
+But sometimes you need access to class members, and for that, there is public. You can use it to make everything below accessible outside the class:
+
+class City {
+ 
+  int population; 
+ 
+public: // stuff below is public
+  void add_resident() { 
+    population++;
+  }
+ 
+};
+
+There is also a private access modifier for when you want something below public to be private to the class:
+
+class City {
+ 
+  int population; 
+ 
+public:
+  void add_resident() { 
+    population++;
+  }
+ 
+private: // this stuff is private
+  bool is_capital;
+ 
+};
+
+music.cpp
+---------
+#include <iostream>
+#include "song.hpp"
+
+int main() {
+
+  Song electric_relaxation;
+  
+  electric_relaxation.add_artist("A Tribe Called Quest");
+  std::cout << electric_relaxation.get_artist();
+}
+
+song.hpp
+--------
+#include <string>
+
+class Song {
+  
+  std::string title;
+  std::string artist;
+
+public:
+  void add_title(std::string new_title);
+  std::string get_title();
+  
+  void add_artist(std::string new_artist);
+  std::string get_artist();
+  
+};
+
+song.cpp
+--------
+#include "song.hpp"
+
+// add Song method definitions here:
+void Song::add_title(std::string new_title) {
+
+  title = new_title;
+
+}
+
+std::string Song::get_title() {
+
+  return title;
+
+}
+
+void Song::add_artist(std::string new_artist) {
+
+  artist = new_artist;
+
+}
+
+std::string Song::get_artist() {
+
+  return artist;
+
+}
+
+==================================================================================================================================================================
+
 
 
 
